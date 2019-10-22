@@ -6,7 +6,7 @@ from pages.es_workflow_page import EsWorkflowPage
 
 
 @when(u'I do the login in ES with {username} and {password}')
-def step_impl(context):
+def step_impl(context, username, password):
     es_login = EsLoginPage(context, username, password)
     es_login.login(username, password)
 
@@ -20,4 +20,4 @@ def step_impl(context, menu, submenu):
 @then(u'I should create a workflow with {name} {version} {subversion} {description} and {projeto} variables')
 def step_impl(context, name, version, subversion, description, projeto):
     es_workflow = EsWorkflowPage(context)
-    es_workflow.import_workflow_main_page(name, version, subversion, description, projeto)
+    es_workflow.create_workflow(name, version, subversion, description, projeto)

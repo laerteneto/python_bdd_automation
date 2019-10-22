@@ -48,7 +48,7 @@ class WebBrowser():
         """
         try:
             self.log.info("Waiting for :: " + str(timeout) + " :: seconds for element "+element)
-            element = WebDriverWait(driver, 10).until(
+            element = WebDriverWait(self.context.driver, 10).until(
                     EC.presence_of_element_located((By.XPATH, element))
                          )
             print("---------------------------------------\n")

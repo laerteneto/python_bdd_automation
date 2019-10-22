@@ -18,12 +18,10 @@ class EsWorkflowPage(WebBrowser):
     """
 
     def filter_search(self, id_workflow="", name=""):
-        self.click_on(locator=self.es_workflow_map.ButtonElement("Filtro"))
-        self.send_keys(locator=self.es_workflow_map.InputFieldByName(
-            "Tarea", "input"), text=id_workflow)
-        self.send_keys(locator=self.es_workflow_map.InputFieldByName(
-            "Nombre", "input"), text=name)
-        self.click_on(locator=self.es_workflow_map.ButtonElement("Búsqueda"))
+        self.click_on(self.es_workflow_map.ButtonElement("Filtro"))
+        self.send_keys(self.es_workflow_map.InputFieldByName("Tarea", "input"), text=id_workflow)
+        self.send_keys(self.es_workflow_map.InputFieldByName("Nombre", "input"), text=name)
+        self.click_on(self.es_workflow_map.ButtonElement("Búsqueda"))
 
     def gear_click(self, button_name):
         self.click_on(self.es_workflow_map.GearClosed())

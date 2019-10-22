@@ -1,0 +1,13 @@
+{
+    "name": "Python: Behave current file",
+    "type": "python",
+    "request": "launch",
+    "module": "behave",
+    "console": "integratedTerminal",
+    "args": [
+        "-D","browser=chrome","${file}"
+    ],
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": false,
+    "python.linting.flake8Enabled": true
+}

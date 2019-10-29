@@ -9,4 +9,4 @@ Feature: ES
         Then I should import "<workflow2>" to "<project>"
         Examples:
             | url                                        | username | password | menu           | submenu  | workflow1 | workflow2 | sla     | tmo     | description | project  |
-            | http://udi-ddwy542/ES.QA.2019.1.WEB/Login/ | admin    | Adm1n@   | Administración | Workflow | Teste 98  | 98.1      | 0000002 | 0000007 | python bdd  | Proyecto |
+            | http://udi-ddwy542/ES.QA.2019.1.WEB/Login/ | admin    | Adm1n@   | Administración | Workflow | Teste 99  | 99.1      | 0000002 | 0000007 | python bdd  | Proyecto |

@@ -100,7 +100,7 @@ class WebBrowser():
         @param text(str)
         """
         try:
-            element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(element))
+            element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(By.XPATH(element)))
             select = Select(element)
             select.select_by_visible_text(text)
             self.log.info("Selected element from menu: " + element)

@@ -11,7 +11,7 @@ class EsWorkflowPage(WebBrowser):
     def __init__(self, context):
         super().__init__(context)
         self.es_workflow_map = EsWorkflowMap()
-        self.es_menu_page = EsMenuPage(self.driver)
+        self.es_menu_page = EsMenuPage(context)
 
     """
     Filter for searching something
@@ -19,8 +19,10 @@ class EsWorkflowPage(WebBrowser):
 
     def filter_search(self, id_workflow="", name=""):
         self.click_on(self.es_workflow_map.ButtonElement("Filtro"))
-        self.send_keys(self.es_workflow_map.InputFieldByName("Tarea", "input"), text=id_workflow)
-        self.send_keys(self.es_workflow_map.InputFieldByName("Nombre", "input"), text=name)
+        self.send_keys(self.es_workflow_map.InputFieldByName(
+            "Tarea", "input"), text=id_workflow)
+        self.send_keys(self.es_workflow_map.InputFieldByName(
+            "Nombre", "input"), text=name)
         self.click_on(self.es_workflow_map.ButtonElement("Búsqueda"))
 
     def gear_click(self, button_name):
@@ -47,13 +49,14 @@ class EsWorkflowPage(WebBrowser):
             self.es_workflow_map.ValidateMessage("Detalle del workflow"))
         self.TakeScreenshot("Workflow created")
 
-    def export_workflow(self, name_workflow_to_export=""):
+    def export_workflow(self, name_workflow_to_export):
         self.es_menu_page.click_es_menu('Administración', "Workflow")
         self.filter_search(name=name_workflow_to_export)
         self.gear_click("Exportación")
-        time.sleep(0.2)  # To assure the download
+        time.sleep(1)  # To assure the download
+        print("------------------------after download---------------------\n")
         self.click_on(self.es_workflow_map.ModalButton("Exportación"))
-        time.sleep(2)  # To assure the download
+        time.sleep(1)  # To assure the download
         self.TakeScreenshot("Workflow exported")
 
     def import_workflow_main_page(self, project, workflow_name):
